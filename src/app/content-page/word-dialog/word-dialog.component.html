@@ -1,0 +1,16 @@
+<h2 mat-dialog-title>Add New Word</h2>
+<mat-dialog-content>
+  <p>Enter the new word and its meaning.</p>
+  <mat-form-field>
+    <mat-label>Type the word here...</mat-label>
+    <input matInput [(ngModel)]="word" />
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Enter the meaning here...</mat-label>
+    <input matInput [(ngModel)]="meaning" />
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions [align]="'end'">
+  <button mat-button [mat-dialog-close]="">Cancel</button>
+  <button mat-button [mat-dialog-close]="{word:word(), meaning:meaning()}" cdkFocusInitial>Save</button>
+</mat-dialog-actions>

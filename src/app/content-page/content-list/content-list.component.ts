@@ -1,14 +1,38 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialog } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { WordDialogComponent } from '../word-dialog/word-dialog.component';
 
 @Component({
   selector: 'app-content-list',
   templateUrl: './content-list.component.html',
-  // styles: [':host{display:contents}'], // Makes component host as if it was not there, can offer less css headaches. Use @HostBinding class approach for easier overrides.
+  styleUrl: 'content-list.component.scss',
   standalone: true,
-  imports: [CommonModule],
+  imports: [
+    CommonModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule,
+  ],
 })
 export class ContentListComponent {
-  // @HostBinding('class') protected readonly class = 'contents'; // Makes component host as if it was not there, can offer less css headaches. Assumes .contents{display:contents} css class exits
-  // constructor() {}
+
+  readonly dialog = inject(MatDialog);
+
+  onAdd() {
+  const dialogRef = this.dialog.open(WordDialogComponent, {
+      data: {name: 'name-test', animal: 'animal-test'},
+
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      if (result !== undefined) {
+        // this.animal.set(result);
+      }
+    });
+  }
 }

@@ -1,0 +1,14 @@
+- [ ] list mode
+  - [ ] can switch mode (show/hide meaning) using icon
+  - [ ] can open modal to input new word
+  - [ ] should load meaning automatically
+  - [ ] can add meaning manually
+- [ ] learning mode
+  - [ ] show a word at a time
+  - [ ] touch should rotate card and show the meaning
+  - [ ] slide show next/previous
+  - [ ] can change important(memorize) level
+- [ ] settings
+  - [ ] can setup google account
+- [ ] login
+  - [ ] can loging google
