@@ -8,6 +8,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { WordMeaningData } from '../models/word-meaning.model';
 import { WordDialogComponent } from '../word-dialog/word-dialog.component';
 import { WordListItemComponent } from '../word-list-item/word-list-item.component';
+import { sampleWordMeanings } from '../models/sample-word-meaning';
 
 @Component({
   selector: 'app-content-home',
@@ -38,28 +39,51 @@ export class ContentHomeComponent implements OnInit {
   onAddNew() {
     this.onUpdate({
       word: '',
-      meaning: ''
-    });
+      meaning: '',
+      difficulty: 0,
+    }, -1);
   }
 
-  onUpdate(data: WordMeaningData) {
+  onUpdate(data: WordMeaningData, index: number) {
     const dialogRef = this.dialog.open(WordDialogComponent, { data });
     dialogRef.afterClosed().subscribe(result => {
-      console.log('+++ onUpdate', {result})
       if (result === undefined) {
         return;
       }
-      this.wordList.unshift(result);
-      this.storeList;
+      if (index >= 0) {
+        this.wordList.splice(index, 1, result);
+      } else {
+        this.wordList.unshift(result);
+      }
+      this.storeList();
     });
   }
 
-  private storeList(){
+  decreaseDifficulty(item: WordMeaningData) {
+    item.difficulty--;
+    if (item.difficulty < 0) {
+      item.difficulty = 0;
+    }
+  }
+
+  increaseDifficulty(item: WordMeaningData) {
+    item.difficulty++;
+    if (item.difficulty > 5) {
+      item.difficulty = 5;
+    }
+  }
+
+  delete(index: number) {
+    this.wordList.splice(index, 1);
+    this.storeList();
+  }
+
+  private storeList() {
     localStorage.setItem(this.wordListStorageKey, JSON.stringify(this.wordList));
   }
 
   private restoreList() {
     const storedListString = localStorage.getItem(this.wordListStorageKey);
-    this.wordList = storedListString ? JSON.parse(storedListString) : new Array<WordMeaningData>();
+    this.wordList = storedListString ? JSON.parse(storedListString) : sampleWordMeanings;
   }
 }

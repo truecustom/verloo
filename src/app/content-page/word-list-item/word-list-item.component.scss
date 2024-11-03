@@ -11,12 +11,13 @@
 }
 
 .word-item {
-  width: 100%;
+  min-width: 0;
 }
 
 .word {
   font-weight: bold;
   color: #333;
+  margin-left: 10px;
 }
 
 .meaning {
@@ -24,4 +25,5 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  margin-left: 10px;
 }

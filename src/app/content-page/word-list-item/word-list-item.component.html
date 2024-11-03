@@ -1,4 +1,17 @@
 <div *ngIf="item()" class="word-item" mat-list-item>
-  <div class="word">{{ item()!.word }}</div>
+  <span
+    [matBadge]="item()!.difficulty"
+    [matBadgeColor]="badgeColor"
+    [matBadgeOverlap]="false"
+    [matBadgePosition]="'before'"
+    [matBadgeSize]="'small'"
+    class="word"
+    >{{ item()!.word }}</span
+  >
   <div class="meaning">{{ item()!.meaning }}</div>
+</div>
+<div>
+  <button mat-icon-button (click)="delete.emit()">
+    <mat-icon>delete</mat-icon>
+  </button>
 </div>

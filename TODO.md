@@ -1,5 +1,4 @@
 - [ ] list mode
-  - [ ] can switch mode (show/hide meaning) using icon
   - [ ] can open modal to input new word
   - [ ] should load meaning automatically
   - [ ] can add meaning manually
@@ -8,7 +7,11 @@
   - [ ] touch should rotate card and show the meaning
   - [ ] slide show next/previous
   - [ ] can change important(memorize) level
+  - [ ] game like (self check pass/fail -> display the score at the end)
+    - [ ] add mode (difficult mode and etc..)
 - [ ] settings
   - [ ] can setup google account
+  - [ ] delete all words
+  - [ ] can switch mode (show/hide meaning)
 - [ ] login
-  - [ ] can loging google
+  - [ ] can logging google

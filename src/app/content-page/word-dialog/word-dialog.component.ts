@@ -11,7 +11,9 @@ import {
 } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatSliderModule } from '@angular/material/slider';
 import { WordMeaningData } from '../models/word-meaning.model';
+import { constants } from '../../constants';
 
 @Component({
   selector: 'app-word-dialog',
@@ -27,20 +29,29 @@ import { WordMeaningData } from '../models/word-meaning.model';
     MatDialogContent,
     MatDialogActions,
     MatDialogClose,
+    MatSliderModule,
   ]
 })
 export class WordDialogComponent {
-  readonly dialogRef = inject(MatDialogRef<WordDialogComponent>);
+
+  readonly maxDifficulty = constants.maxDifficulty;
+
+  readonly dialogRef = inject(MatDialogRef<WordDialogComponent, WordMeaningData>);
   readonly data = inject<WordMeaningData>(MAT_DIALOG_DATA);
   readonly word = model(this.data.word);
   readonly meaning = model(this.data.meaning)
+  readonly difficulty = model(this.data.difficulty);
 
   onNoClick(): void {
     this.dialogRef.close();
   }
 
   onSave(): void {
-    this.dialogRef.close();
+    this.dialogRef.close({
+      word: this.word(),
+      meaning: this.meaning(),
+      difficulty: this.difficulty()
+    });
   }
 
   isAllInputValied() {

@@ -10,6 +10,13 @@
 </mat-toolbar>
 <mat-list role="list">
   @for (item of wordList; track $index) {
-     <app-word-list-item [item]="item" mat-list-item></app-word-list-item>
+  <app-word-list-item
+    [item]="item"
+    mat-list-item
+    (delete)="delete($index)"
+    (swipeleft)="decreaseDifficulty(item)"
+    (swiperight)="increaseDifficulty(item)"
+    (click)="onUpdate(item, $index)"
+  ></app-word-list-item>
   }
 </mat-list>

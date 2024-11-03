@@ -1,4 +1,8 @@
+@if (word()) {
+<h2 mat-dialog-title>Update Word</h2>
+} @else {
 <h2 mat-dialog-title>Add New Word</h2>
+}
 <mat-dialog-content>
   <p>Enter the new word and its meaning.</p>
   <mat-form-field>
@@ -9,8 +13,22 @@
     <mat-label>Enter the meaning here...</mat-label>
     <textarea [(ngModel)]="meaning" matInput></textarea>
   </mat-form-field>
+  <div class="difficulty-labels">
+    <label class="label">Difficulty</label>
+    <label class="value">{{ slider.value }}</label>
+  </div>
+  <mat-slider [max]="maxDifficulty" [min]="0" [step]="1">
+    <input matSliderThumb [(ngModel)]="difficulty" #slider />
+  </mat-slider>
 </mat-dialog-content>
 <mat-dialog-actions [align]="'end'">
   <button mat-button [mat-dialog-close]="">Cancel</button>
-  <button [disabled]="!isAllInputValied()" mat-button [mat-dialog-close]="{word:word(), meaning:meaning()}" cdkFocusInitial>Save</button>
+  <button
+    [disabled]="!isAllInputValied()"
+    mat-button
+    (click)="onSave()"
+    cdkFocusInitial
+  >
+    Save
+  </button>
 </mat-dialog-actions>
