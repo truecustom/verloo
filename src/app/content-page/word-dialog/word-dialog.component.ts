@@ -11,16 +11,13 @@ import {
 } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-
-export interface WordDialogData {
-  word: string;
-  meaning: string;
-}
+import { WordMeaningData } from '../models/word-meaning.model';
 
 @Component({
   selector: 'app-word-dialog',
   templateUrl: './word-dialog.component.html',
   standalone: true,
+  styleUrl: 'word-dialog.component.scss',
   imports: [
     MatFormFieldModule,
     MatInputModule,
@@ -34,7 +31,7 @@ export interface WordDialogData {
 })
 export class WordDialogComponent {
   readonly dialogRef = inject(MatDialogRef<WordDialogComponent>);
-  readonly data = inject<WordDialogData>(MAT_DIALOG_DATA);
+  readonly data = inject<WordMeaningData>(MAT_DIALOG_DATA);
   readonly word = model(this.data.word);
   readonly meaning = model(this.data.meaning)
 
@@ -44,5 +41,9 @@ export class WordDialogComponent {
 
   onSave(): void {
     this.dialogRef.close();
+  }
+
+  isAllInputValied() {
+    return this.word() && this.meaning()
   }
 }

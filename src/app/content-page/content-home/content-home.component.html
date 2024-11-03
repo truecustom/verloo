@@ -1,0 +1,15 @@
+<mat-toolbar>
+  <button mat-icon-button class="example-icon" aria-label="main menu">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>Verloo</span>
+  <span class="menu-spacer"></span>
+  <button mat-mini-fab aria-label="add new word" (click)="onAddNew()">
+    <mat-icon>add box</mat-icon>
+  </button>
+</mat-toolbar>
+<mat-list role="list">
+  @for (item of wordList; track $index) {
+     <app-word-list-item [item]="item" mat-list-item></app-word-list-item>
+  }
+</mat-list>

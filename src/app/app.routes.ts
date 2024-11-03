@@ -5,6 +5,6 @@ export const routes: Routes = [
     path: '', redirectTo: 'content', pathMatch: 'full'
   },
   {
-    path: 'content', loadComponent: () => import('./content-page/content-list/content-list.component').then(mod => mod.ContentListComponent)
+    path: 'content', loadComponent: () => import('./content-page/content-home/content-home.component').then(mod => mod.ContentHomeComponent)
   }
 ];

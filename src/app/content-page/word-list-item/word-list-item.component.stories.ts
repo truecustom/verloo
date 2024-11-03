@@ -1,17 +1,17 @@
 import { Meta, StoryObj } from '@storybook/angular';
 import { StoryFnAngularReturnType } from '@storybook/angular/dist/client/types';
 
-import { ContentListComponent } from './content-list.component';
+import { WordListItemComponent } from './word-list-item.component';
 
-type ComponentWithCustomControls = ContentListComponent & {};
+type ComponentWithCustomControls = WordListItemComponent & {};
 
 const meta: Meta<ComponentWithCustomControls> = {
   // TODO: Make sure this title path is correct, uncomment tile, then remove this comment. OR remove both comment and title
-  // title: 'Components/Content List',
-  component: ContentListComponent,
+  // title: 'Components/Word List Item',
+  component: WordListItemComponent,
   // decorators: [moduleMetadata({ imports: [] }), applicationConfig({ providers: [ importProvidersFrom() ]})],
   parameters: {
-    docs: { description: { component: `ContentList` } },
+    docs: { description: { component: `WordListItem` } },
     // layout: 'fullscreen',
   },
   argTypes: {
@@ -28,7 +28,7 @@ const meta: Meta<ComponentWithCustomControls> = {
 };
 export default meta;
 
-export const ContentList: StoryObj<ComponentWithCustomControls> = {
+export const WordListItem: StoryObj<ComponentWithCustomControls> = {
   args: {}, // Overrides args from default
   render: (args): StoryFnAngularReturnType => ({ props: args }),
 }

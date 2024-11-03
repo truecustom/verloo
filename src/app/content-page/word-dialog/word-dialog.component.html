@@ -7,10 +7,10 @@
   </mat-form-field>
   <mat-form-field>
     <mat-label>Enter the meaning here...</mat-label>
-    <input matInput [(ngModel)]="meaning" />
+    <textarea [(ngModel)]="meaning" matInput></textarea>
   </mat-form-field>
 </mat-dialog-content>
 <mat-dialog-actions [align]="'end'">
   <button mat-button [mat-dialog-close]="">Cancel</button>
-  <button mat-button [mat-dialog-close]="{word:word(), meaning:meaning()}" cdkFocusInitial>Save</button>
+  <button [disabled]="!isAllInputValied()" mat-button [mat-dialog-close]="{word:word(), meaning:meaning()}" cdkFocusInitial>Save</button>
 </mat-dialog-actions>
