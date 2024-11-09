@@ -1,5 +1,5 @@
 import { inject, Injectable } from '@angular/core';
-import { WordMeaningData } from '../../content-page/models/word-meaning.model';
+import { WordMeaningData } from '../../data-models/word-meaning.model';
 import { MatDialog } from '@angular/material/dialog';
 import { WordDialogComponent } from '../../content-page/word-dialog/word-dialog.component';
 

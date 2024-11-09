@@ -1,3 +1,42 @@
-<pre>
-  app-setting-home
-</pre>
+<mat-card>
+  <mat-card-content>
+    <h2>General Settings</h2>
+    <section>
+      <mat-slide-toggle>Show/Hide meaning</mat-slide-toggle>
+    </section>
+    <section>
+      <mat-slider max="5" min="0" step="1">
+        <input matSliderThumb value="1.5">
+      </mat-slider>
+      Change memorize level
+    </section>
+    <section>
+      <button mat-raised-button>Delete all words</button>
+    </section>
+
+    <mat-divider></mat-divider>
+
+    <h2>Account Settings</h2>
+    <section>
+      <mat-slide-toggle>Setup Google account</mat-slide-toggle>
+    </section>
+    <section>
+      <mat-slide-toggle>login</mat-slide-toggle>
+    </section>
+
+    <mat-divider></mat-divider>
+
+    <h2>Learning Mode Settings</h2>
+    <section>
+      <mat-slide-toggle>Slide to show next/previous</mat-slide-toggle>
+    </section>
+
+    <mat-divider></mat-divider>
+
+    <h2>List Mode Settings</h2>
+    <section>
+      <mat-slide-toggle>Load meaning automatically</mat-slide-toggle>
+    </section>
+
+  </mat-card-content>
+</mat-card>

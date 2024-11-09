@@ -1,3 +1,4 @@
+Features
 - [ ] list mode
   - [ ] can open modal to input new word
   - [ ] should load meaning automatically
@@ -15,3 +16,7 @@
   - [ ] can switch mode (show/hide meaning)
 - [ ] login
   - [ ] can logging to google
+
+
+Refactorings
+- [ ] migrate to NgRX signal

@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { WordMeaningData } from '../content-page/models/word-meaning.model';
+import { WordMeaningData } from '../data-models/word-meaning.model';
 
 export const restoreWords = createAction('[Word] Restore Words');
 export const updateWordList = createAction('[Word] Update Word List', props<{ words: WordMeaningData[] }>());

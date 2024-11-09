@@ -12,7 +12,7 @@ import {
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSliderModule } from '@angular/material/slider';
-import { WordMeaningData } from '../models/word-meaning.model';
+import { WordMeaningData } from '../../data-models/word-meaning.model';
 import { constants } from '../../constants';
 import { addWord, updateWord } from '../../states/word.actions';
 import { Store } from '@ngrx/store';

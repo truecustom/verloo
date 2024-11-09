@@ -1,6 +1,6 @@
 import { createEntityAdapter } from '@ngrx/entity';
 import { createReducer, on } from '@ngrx/store';
-import { WordMeaningData } from '../content-page/models/word-meaning.model';
+import { WordMeaningData } from '../data-models/word-meaning.model';
 import { addWord, decreaseWordDifficulty, increaseWordDifficulty, removeWord, updateWord, updateWordList } from './word.actions';
 import { constants } from '../constants';
 

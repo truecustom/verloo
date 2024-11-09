@@ -2,8 +2,8 @@ import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { updateWordList } from "./word.actions";
 import { map } from "rxjs";
-import { WordMeaningData } from "../content-page/models/word-meaning.model";
-import { sampleWordMeanings } from "../content-page/models/sample-word-meaning";
+import { WordMeaningData } from "../data-models/word-meaning.model";
+import { sampleWordMeanings } from "../data-models/sample-word-meaning";
 import { constants } from "../constants";
 
 @Injectable()
