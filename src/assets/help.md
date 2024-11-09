@@ -59,7 +59,3 @@ If you are using a different browser, the steps may vary slightly. Generally, lo
 
 
 Happy Learning!
-
----
-
-*Verloo Team*
