@@ -1,5 +1,5 @@
 <mat-list role="list">
-  @for (item of wordList; track $index) {
+  @for (item of (wordList$ | async); track $index) {
   <app-word-list-item
     [item]="item"
     mat-list-item

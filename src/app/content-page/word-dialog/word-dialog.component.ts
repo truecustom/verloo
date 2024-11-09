@@ -14,6 +14,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSliderModule } from '@angular/material/slider';
 import { WordMeaningData } from '../models/word-meaning.model';
 import { constants } from '../../constants';
+import { addWord } from '../../states/word.actions';
 
 @Component({
   selector: 'app-word-dialog',
@@ -47,6 +48,7 @@ export class WordDialogComponent {
   }
 
   onSave(): void {
+
     this.dialogRef.close({
       word: this.word(),
       meaning: this.meaning(),
