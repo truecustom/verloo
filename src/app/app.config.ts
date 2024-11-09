@@ -5,7 +5,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { routes } from './app.routes';
 
 import { HttpClient, provideHttpClient } from '@angular/common/http';
-import { HAMMER_GESTURE_CONFIG, HammerGestureConfig, HammerModule } from '@angular/platform-browser';
+import { HAMMER_GESTURE_CONFIG, HammerGestureConfig, HammerModule, provideClientHydration } from '@angular/platform-browser';
 import { provideEffects } from '@ngrx/effects';
 import { provideStore } from '@ngrx/store';
 import 'hammerjs';
@@ -35,6 +35,6 @@ export const appConfig: ApplicationConfig = {
     provideStore({
       [wordFeatureKey]: reducer
     }),
-    provideEffects([WordEffects])
+    provideEffects([WordEffects]), provideClientHydration()
 ]
 };
