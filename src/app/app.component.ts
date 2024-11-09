@@ -3,6 +3,8 @@ import { RouterOutlet } from '@angular/router';
 import { ToolbarComponent } from './shared/toolbar/toolbar.component';
 import { restoreWords } from './states/word.actions';
 import { Store } from '@ngrx/store';
+import { selectWordList } from './states/word.selectors';
+import { constants } from './constants';
 
 @Component({
   selector: 'app-root',
@@ -16,5 +18,8 @@ export class AppComponent {
 
   constructor(private store: Store) {
     this.store.dispatch(restoreWords());
+    this.store.select(selectWordList).subscribe(list => {
+      localStorage.setItem(constants.wordListStorageKey, JSON.stringify(list));
+    });
   }
 }

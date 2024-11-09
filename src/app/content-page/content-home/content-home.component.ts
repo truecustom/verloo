@@ -11,6 +11,7 @@ import { WordMeaningData } from '../models/word-meaning.model';
 import { WordListItemComponent } from '../word-list-item/word-list-item.component';
 import { Store } from '@ngrx/store';
 import { selectWordList } from '../../states/word.selectors';
+import { decreaseWordDifficulty, increaseWordDifficulty, removeWord } from '../../states/word.actions';
 
 @Component({
   selector: 'app-content-home',
@@ -40,45 +41,18 @@ export class ContentHomeComponent implements OnInit {
   }
 
   onUpdate(data: WordMeaningData, index: number) {
-  //   const dialogRef = this.wordModalService.openUpdate(data, index);
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     if (result === undefined) {
-  //       return;
-  //     }
-  //     if (index >= 0) {
-  //       this.wordList.splice(index, 1, result);
-  //     } else {
-  //       this.wordList.unshift(result);
-  //     }
-  //     this.storeList();
-  //   });
+    this.wordModalService.openUpdate(data, index);
   }
 
-  decreaseDifficulty(item: WordMeaningData) {
-    item.difficulty--;
-    if (item.difficulty < 0) {
-      item.difficulty = 0;
-    }
+  decreaseDifficulty(index: number) {
+    this.store.dispatch(decreaseWordDifficulty({ index }));
   }
 
-  increaseDifficulty(item: WordMeaningData) {
-    item.difficulty++;
-    if (item.difficulty > 5) {
-      item.difficulty = 5;
-    }
+  increaseDifficulty(index: number) {
+    this.store.dispatch(increaseWordDifficulty({ index }));
   }
 
   delete(index: number) {
-    // this.wordList.splice(index, 1);
-    // this.storeList();
+    this.store.dispatch(removeWord({ index }));
   }
-
-  // private storeList() {
-  //   localStorage.setItem(this.wordListStorageKey, JSON.stringify(this.wordList));
-  // }
-
-  // private restoreList() {
-  //   const storedListString = localStorage.getItem(this.wordListStorageKey);
-  //   this.wordList = storedListString ? JSON.parse(storedListString) : sampleWordMeanings;
-  // }
 }

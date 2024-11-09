@@ -1,7 +1,5 @@
 import { createFeatureSelector, createSelector } from "@ngrx/store";
-import { adapter, wordFeatureKey, WordState } from "./word.reducer";
-
- const wordAdapter = adapter.getSelectors();
+import { wordFeatureKey, WordState } from "./word.reducer";
 
 export const getWordState = createFeatureSelector<WordState>(wordFeatureKey);
-export const selectWordList = createSelector(getWordState, wordAdapter.selectAll);
+export const selectWordList = createSelector(getWordState, (state) => state.words);

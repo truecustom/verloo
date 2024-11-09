@@ -1,17 +1,17 @@
-import { ApplicationConfig, effect, importProvidersFrom, Injectable } from '@angular/core';
+import { ApplicationConfig, importProvidersFrom, Injectable } from '@angular/core';
 import { provideRouter } from '@angular/router';
 
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { routes } from './app.routes';
 
+import { HttpClient, provideHttpClient } from '@angular/common/http';
 import { HAMMER_GESTURE_CONFIG, HammerGestureConfig, HammerModule } from '@angular/platform-browser';
+import { provideEffects } from '@ngrx/effects';
+import { provideStore } from '@ngrx/store';
 import 'hammerjs';
 import { provideMarkdown } from 'ngx-markdown';
-import { HttpClient, provideHttpClient } from '@angular/common/http';
-import { provideStore } from '@ngrx/store';
-import { provideEffects } from '@ngrx/effects';
-import { reducer } from './states/word.reducer';
 import { WordEffects } from './states/word.effects';
+import { reducer, wordFeatureKey } from './states/word.reducer';
 
 
 @Injectable()
@@ -33,7 +33,7 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(),
     provideMarkdown({ loader: HttpClient }),
     provideStore({
-      word: reducer
+      [wordFeatureKey]: reducer
     }),
     provideEffects([WordEffects])
 ]

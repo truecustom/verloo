@@ -4,8 +4,8 @@
     [item]="item"
     mat-list-item
     (delete)="delete($index)"
-    (swipeleft)="decreaseDifficulty(item)"
-    (swiperight)="increaseDifficulty(item)"
+    (swipeleft)="decreaseDifficulty($index)"
+    (swiperight)="increaseDifficulty($index)"
     (click)="onUpdate(item, $index)"
   ></app-word-list-item>
   }

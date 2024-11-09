@@ -14,7 +14,13 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSliderModule } from '@angular/material/slider';
 import { WordMeaningData } from '../models/word-meaning.model';
 import { constants } from '../../constants';
-import { addWord } from '../../states/word.actions';
+import { addWord, updateWord } from '../../states/word.actions';
+import { Store } from '@ngrx/store';
+
+export interface WordDialogData {
+  word: WordMeaningData;
+  index: number;
+}
 
 @Component({
   selector: 'app-word-dialog',
@@ -37,26 +43,34 @@ export class WordDialogComponent {
 
   readonly maxDifficulty = constants.maxDifficulty;
 
-  readonly dialogRef = inject(MatDialogRef<WordDialogComponent, WordMeaningData>);
-  readonly data = inject<WordMeaningData>(MAT_DIALOG_DATA);
-  readonly word = model(this.data.word);
-  readonly meaning = model(this.data.meaning)
-  readonly difficulty = model(this.data.difficulty);
+  readonly dialogRef = inject(MatDialogRef<WordDialogComponent>);
+  readonly data = inject<WordDialogData>(MAT_DIALOG_DATA);
+  readonly word = model(this.data.word.word);
+  readonly meaning = model(this.data.word.meaning)
+  readonly difficulty = model(this.data.word.difficulty);
+
+  constructor(private store: Store) { }
 
   onNoClick(): void {
     this.dialogRef.close();
   }
 
   onSave(): void {
-
-    this.dialogRef.close({
+    const word = {
       word: this.word(),
       meaning: this.meaning(),
       difficulty: this.difficulty()
-    });
+    };
+    if (this.data.index >= 0) {
+      this.store.dispatch(updateWord({ word, index: this.data.index }))
+    } else {
+      this.store.dispatch(addWord({ newWord: word }))
+    }
+    this.dialogRef.close();
   }
 
   isAllInputValied() {
     return this.word() && this.meaning()
   }
+
 }

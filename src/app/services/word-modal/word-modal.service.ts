@@ -16,8 +16,8 @@ export class WordModalService {
     }, -1);
   }
 
-  openUpdate(data: WordMeaningData, index: number) {
-    return this.dialog.open(WordDialogComponent, { data });
+  openUpdate(word: WordMeaningData, index: number) {
+    return this.dialog.open(WordDialogComponent, { data: { word, index } });
   }
 
 }

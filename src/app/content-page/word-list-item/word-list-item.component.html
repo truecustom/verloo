@@ -11,7 +11,7 @@
   <div class="meaning">{{ item()!.meaning }}</div>
 </div>
 <div>
-  <button mat-icon-button (click)="delete.emit()">
+  <button mat-icon-button (click)="$event.stopPropagation(); delete.emit()">
     <mat-icon>delete</mat-icon>
   </button>
 </div>
