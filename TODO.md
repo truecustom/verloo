@@ -14,4 +14,4 @@
   - [ ] delete all words
   - [ ] can switch mode (show/hide meaning)
 - [ ] login
-  - [ ] can logging google
+  - [ ] can logging to google
