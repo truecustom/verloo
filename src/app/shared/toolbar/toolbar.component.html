@@ -1,0 +1,34 @@
+<mat-toolbar>
+  <button mat-icon-button aria-label="main menu" [matMenuTriggerFor]="menu" >
+    <mat-icon>more_vert</mat-icon>
+  </button>
+  <span>Verloo</span>
+  <span class="menu-spacer"></span>
+  <button mat-mini-fab aria-label="add new word" (click)="onAddNew()">
+    <mat-icon>add box</mat-icon>
+  </button>
+</mat-toolbar>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item>
+    <mat-icon>list</mat-icon>
+    <span>List Mode</span>
+  </button>
+  <button mat-menu-item>
+    <mat-icon>fact_check</mat-icon>
+    <span>Learning Mode</span>
+  </button>
+ <mat-divider></mat-divider>
+  <button mat-menu-item>
+    <mat-icon>settings</mat-icon>
+    <span>Settings</span>
+  </button>
+  <button mat-menu-item>
+    <mat-icon>login</mat-icon>
+    <span>Login</span>
+  </button>
+ <mat-divider></mat-divider>
+  <button mat-menu-item [routerLink]="['/help']">
+    <mat-icon>help_outline</mat-icon>
+    <span>Help</span>
+  </button>
+</mat-menu>

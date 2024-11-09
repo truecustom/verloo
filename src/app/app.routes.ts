@@ -6,5 +6,8 @@ export const routes: Routes = [
   },
   {
     path: 'content', loadComponent: () => import('./content-page/content-home/content-home.component').then(mod => mod.ContentHomeComponent)
+  },
+  {
+    path: 'help', loadComponent: () => import('./help-page/help-home/help-home.component').then(mod => mod.HelpHomeComponent)
   }
 ];

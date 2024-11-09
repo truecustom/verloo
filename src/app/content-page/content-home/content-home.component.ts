@@ -1,14 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
-import { MatDialog } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { WordMeaningData } from '../models/word-meaning.model';
-import { WordDialogComponent } from '../word-dialog/word-dialog.component';
-import { WordListItemComponent } from '../word-list-item/word-list-item.component';
+import { WordModalService } from '../../services/word-modal/word-modal.service';
+import { ToolbarComponent } from '../../shared/toolbar/toolbar.component';
 import { sampleWordMeanings } from '../models/sample-word-meaning';
+import { WordMeaningData } from '../models/word-meaning.model';
+import { WordListItemComponent } from '../word-list-item/word-list-item.component';
 
 @Component({
   selector: 'app-content-home',
@@ -22,13 +22,14 @@ import { sampleWordMeanings } from '../models/sample-word-meaning';
     MatIconModule,
     MatListModule,
     WordListItemComponent,
+    ToolbarComponent,
   ],
 })
 export class ContentHomeComponent implements OnInit {
 
   private readonly wordListStorageKey = 'wordList';
 
-  readonly dialog = inject(MatDialog);
+  readonly wordModalService = inject(WordModalService);
 
   wordList = new Array<WordMeaningData>();
 
@@ -36,16 +37,8 @@ export class ContentHomeComponent implements OnInit {
     this.restoreList();
   }
 
-  onAddNew() {
-    this.onUpdate({
-      word: '',
-      meaning: '',
-      difficulty: 0,
-    }, -1);
-  }
-
   onUpdate(data: WordMeaningData, index: number) {
-    const dialogRef = this.dialog.open(WordDialogComponent, { data });
+    const dialogRef = this.wordModalService.openUpdate(data, index);
     dialogRef.afterClosed().subscribe(result => {
       if (result === undefined) {
         return;

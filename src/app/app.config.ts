@@ -1,11 +1,13 @@
 import { ApplicationConfig, importProvidersFrom, Injectable } from '@angular/core';
 import { provideRouter } from '@angular/router';
 
-import { routes } from './app.routes';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { routes } from './app.routes';
 
-import 'hammerjs';
 import { HAMMER_GESTURE_CONFIG, HammerGestureConfig, HammerModule } from '@angular/platform-browser';
+import 'hammerjs';
+import { provideMarkdown } from 'ngx-markdown';
+import { HttpClient, provideHttpClient } from '@angular/common/http';
 
 
 @Injectable()
@@ -24,5 +26,7 @@ export const appConfig: ApplicationConfig = {
     provideAnimationsAsync(),
     importProvidersFrom(HammerModule),
     { provide: HAMMER_GESTURE_CONFIG, useClass: MyHammerConfig },
+    provideHttpClient(),
+    provideMarkdown({loader: HttpClient}),
   ]
 };

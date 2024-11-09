@@ -1,6 +1,7 @@
 # Verloo Help Document
 
 Welcome to Verloo, your personal English vocabulary memorization app! This document will guide you through the features and functionalities of the app.
+*Verloo is a mobile application and does not support desktop for now.
 
 ## Features
 
