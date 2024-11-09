@@ -1,8 +1,8 @@
-Features
+### Features
 - [ ] list mode
-  - [ ] can open modal to input new word
+  - [x] can open modal to input new word
   - [ ] should load meaning automatically
-  - [ ] can add meaning manually
+  - [x] can add meaning manually
 - [ ] learning mode
   - [ ] show a word at a time
   - [ ] touch should rotate card and show the meaning
@@ -18,5 +18,5 @@ Features
   - [ ] can logging to google
 
 
-Refactorings
+### Refactorings
 - [ ] migrate to NgRX signal
