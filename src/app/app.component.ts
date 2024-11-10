@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { afterNextRender, Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { ToolbarComponent } from './shared/toolbar/toolbar.component';
 import { restoreWords } from './states/word.actions';
@@ -17,9 +17,11 @@ export class AppComponent {
   title = 'verloo';
 
   constructor(private store: Store) {
-    this.store.dispatch(restoreWords());
-    this.store.select(selectWordList).subscribe(list => {
-      localStorage.setItem(constants.wordListStorageKey, JSON.stringify(list));
-    });
+    afterNextRender(() => {
+      this.store.dispatch(restoreWords());
+      this.store.select(selectWordList).subscribe(list => {
+        localStorage.setItem(constants.wordListStorageKey, JSON.stringify(list));
+      });
+    })
   }
 }

@@ -16,7 +16,9 @@
   - [ ] can switch mode (show/hide meaning)
 - [ ] login
   - [ ] can logging to google
-
+- [ ] SSR
+  - [ ] SEO
 
 ### Refactorings
 - [ ] migrate to NgRX signal
+
