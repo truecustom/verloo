@@ -7,6 +7,7 @@ import { WordModalService } from '../../services/word-modal/word-modal.service';
 import { decreaseWordDifficulty, increaseWordDifficulty, removeWord } from '../../states/word.actions';
 import { selectWordList } from '../../states/word.selectors';
 import { WordListItemComponent } from '../word-list-item/word-list-item.component';
+import { SwipeGestureDirective } from './../../shared/swipe-gesture/swipe-gesture.directive';
 
 @Component({
   selector: 'app-content-home',
@@ -17,6 +18,7 @@ import { WordListItemComponent } from '../word-list-item/word-list-item.componen
     CommonModule,
     MatListModule,
     WordListItemComponent,
+    SwipeGestureDirective,
   ],
 })
 export class ContentHomeComponent {

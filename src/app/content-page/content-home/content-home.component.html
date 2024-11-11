@@ -1,11 +1,12 @@
 <mat-list role="list">
   @for (item of (wordList$ | async); track $index) {
   <app-word-list-item
+    appSwipeGesture
     [item]="item"
     mat-list-item
     (delete)="delete($index)"
-    (swipeleft)="decreaseDifficulty($index)"
-    (swiperight)="increaseDifficulty($index)"
+    (swipeLeft)="decreaseDifficulty($index)"
+    (swipeRight)="increaseDifficulty($index)"
     (click)="onUpdate(item, $index)"
   ></app-word-list-item>
   }
