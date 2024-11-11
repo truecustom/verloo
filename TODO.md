@@ -18,7 +18,10 @@
   - [ ] can logging to google
 - [ ] SSR
   - [ ] SEO
+- [ ] Generals
+  - [X] support desktop browser (apply fixed width if it is not mobile environment)
 
 ### Refactorings
 - [ ] migrate to NgRX signal
+- [ ] migrate hammerjs to an other alternative solution 
 
