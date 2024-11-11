@@ -2,6 +2,10 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.10.
 
+## Demo
+
+You can view a live demo of the application at [https://polite-pond-02544d81e.5.azurestaticapps.net/](https://polite-pond-02544d81e.5.azurestaticapps.net/).
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
