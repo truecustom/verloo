@@ -24,4 +24,5 @@
 ### Refactorings
 - [ ] migrate to NgRX signal
 - [ ] migrate hammerjs to an other alternative solution 
+- [ ] add new app icon
 
