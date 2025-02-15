@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Demo
 
-You can view a live demo of the application at [https://truecustom.github.io/](https://truecustom.github.io/).
+You can view a live demo of the application at [https://lemon-bay-0fdf60210.4.azurestaticapps.net/](https://lemon-bay-0fdf60210.4.azurestaticapps.net/).
 
 ## Development server
 
